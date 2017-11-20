@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from "react-redux";
 import './index.css';
-import App from './App';
-import Clock from './Clock';
-import Todo from './Todo';
+import Todos from './features/todos';
 import registerServiceWorker from './registerServiceWorker';
 
-/*ReactDOM.render(<App />, document.getElementById('root'));
-ReactDOM.render(<Clock />, document.getElementById('clock'));*/
-ReactDOM.render(<Todo />, document.getElementById('todo'));
+import store from './redux/store';
+
+
+ReactDOM.render(<Provider store={store}>
+                  <Todos />
+                </Provider>, document.getElementById('todo'));
 registerServiceWorker();
